@@ -106,7 +106,6 @@ This document introduces the registration of the following algorithms in {{-IANA
 |-------------|------|-------------|
 | FALCON512  | FALCON512     | Falcon with parameter set 512 |
 | FALCON1024  | FALCON1024     | Falcon with parameter set 1024 |
-
 {: #jose-algorithms align="left" title="JOSE Algorithms for FN-DSA"}
 
 This document introduces the registration of the following algorithms in {{-IANA.cose}}:
@@ -115,7 +114,6 @@ This document introduces the registration of the following algorithms in {{-IANA
 |-------------|------|-------------|
 | FALCON512  | TBD1 (-54) | CBOR Object Signing Algorithm for FALCON512 |
 | FALCON1024  | TBD2 (-55) | CBOR Object Signing Algorithm for FALCON1024 |
-
 {: #cose-algorithms align="left" title="COSE Algorithms for FN-DSA"}
 
 # FN-DSA Keys
