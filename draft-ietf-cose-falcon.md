@@ -271,7 +271,26 @@ The following completed registration templates are provided as described in {{RF
 {: #FALCON512-cose-sign-1-diagnostic title="Example FALCON512 COSE Sign1"}
 
 
+
+# Document History
+
+-02
+
+  *  Converted to markdown
+  *  Applied feedback from IESG Evaluation on ML-DSA
+  *  Revised references
+  *  Revised abstract
+
+-01
+
+  *  Added Acknowledgements
+  *  Added Document History
+  *  Updated test vectors
+
+
 # Acknowledgments
 {:numbered="false"}
 
 We would like to especially thank David Balenson for careful review of approaches taken in this document. We would also like to thank Michael B. Jones for guidance in authoring.
+
+
