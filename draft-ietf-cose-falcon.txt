@@ -98,6 +98,7 @@ Table of Contents
      A.2.  COSE
        A.2.1.  Key Pair
        A.2.2.  COSE Sign1
+   Appendix B.  Document History
    Acknowledgments
    Contributors
    Authors' Addresses
@@ -407,6 +408,26 @@ A.2.2.  COSE Sign1
    ])
 
                    Figure 6: Example FALCON512 COSE Sign1
+
+Appendix B.  Document History
+
+   -02
+
+   *  Converted to markdown
+
+   *  Applied feedback from IESG Evaluation on ML-DSA
+
+   *  Revised references
+
+   *  Revised abstract
+
+   -01
+
+   *  Added Acknowledgements
+
+   *  Added Document History
+
+   *  Updated test vectors
 
 Acknowledgments
 
