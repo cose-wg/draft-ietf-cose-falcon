@@ -1,0 +1,111 @@
+
+
+
+
+CBOR Object Signing and Encryption                            M. Prorock
+Internet-Draft                                                  mesur.io
+Intended status: Standards Track                               O. Steele
+Expires: 14 April 2026                                      Tradeverifyd
+                                                           H. Tschofenig
+                                                                   H-BRS
+                                                         11 October 2025
+
+
+                        FN-DSA for JOSE and COSE
+                     draft-ietf-cose-falcon-latest
+
+Abstract
+
+   TODO
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at https://cose-
+   wg.github.io/draft-ietf-cose-falcon/draft-ietf-cose-falcon.html.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-cose-falcon/.
+
+   Discussion of this document takes place on the CBOR Object Signing
+   and Encryption Working Group mailing list (mailto:cose@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/cose/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/cose/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/cose-wg/draft-ietf-cose-falcon.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 14 April 2026.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   Contributors
+   Authors' Addresses
+
+1.  Introduction
+
+   TODO
+
+Contributors
+
+   Rafael Misoczki
+   Google
+   Email: rafaelmisoczki@google.com
+
+
+   Michael Osborne
+   IBM
+   Email: osb@zurich.ibm.com
+
+
+   Christine Cloostermans
+   NXP
+   Email: christine.cloostermans@nxp.com
+
+
+Authors' Addresses
+
+   Michael Prorock
+   mesur.io
+   Email: mprorock@mesur.io
+
+
+   Orie Steele
+   Tradeverifyd
+   Email: orie@or13.io
+
+
+   Hannes Tschofenig
+   University of Applied Sciences Bonn-Rhein-Sieg
+   Germany
+   Email: hannes.tschofenig@gmx.net
