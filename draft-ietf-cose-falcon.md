@@ -57,6 +57,7 @@ contributor:
 normative:
   RFC7515:
   RFC7517:
+  RFC9052:
   RFC9053:
   RFC9054:
   RFC7518:
