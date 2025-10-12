@@ -124,7 +124,7 @@ The security of the scheme relies on the hardness of solving certain lattice pro
 FN-DSA offers:
 
 - Post-quantum security under the assumption that NTRU-SIS remains hard.
-- Compactness in key and signature size.  
+- Compactness in key and signature size.
 - Efficient operations (roughly O(n log n)).
 - A requirement for careful implementation to avoid side-channel leakage (notably Gaussian sampling must be constant-time where applicable).
 
