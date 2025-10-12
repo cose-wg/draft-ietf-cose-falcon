@@ -138,9 +138,10 @@ TODO
 
 TODO
 
-## Randomness
+## Randomness Considerations
 
-TODO
+All required randomness (e.g. for signature generation) MUST be derived from a cryptographically secure, high-entropy source.
+
 
 # IANA Considerations
 
