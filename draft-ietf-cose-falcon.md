@@ -138,7 +138,7 @@ TODO
 
 Implementers should follow best practices to mitigate timing, cache, and power side channels, such as:
 
-- Using constant-time arithmetic  
+- Using constant-time arithmetic
 - Maintaining uniform memory access patterns  
 - Avoiding data-dependent branching or memory indexing
 
