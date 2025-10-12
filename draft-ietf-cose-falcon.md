@@ -125,7 +125,7 @@ FN-DSA offers:
 
 - Post-quantum security under the assumption that NTRU-SIS remains hard.  
 - Compactness in key and signature size.  
-- Efficient operations (roughly O(n log n)).  
+- Efficient operations (roughly O(n log n)).
 - A requirement for careful implementation to avoid side-channel leakage (notably Gaussian sampling must be constant-time where applicable).
 
 The sizes of public key, private key, and signature for the parameter sets are the same as in the original Falcon specification:
