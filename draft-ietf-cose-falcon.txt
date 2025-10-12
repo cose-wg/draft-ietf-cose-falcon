@@ -85,7 +85,7 @@ Table of Contents
    5.  Security Considerations
      5.1.  Validating Public Keys
      5.2.  Side-Channel Attacks
-     5.3.  Randomness
+     5.3.  Randomness Considerations
    6.  IANA Considerations
      6.1.  New COSE Algorithms
        6.1.1.  FALCON512
@@ -249,9 +249,10 @@ Table of Contents
 
    TODO
 
-5.3.  Randomness
+5.3.  Randomness Considerations
 
-   TODO
+   All required randomness (e.g. for signature generation) MUST be
+   derived from a cryptographically secure, high-entropy source.
 
 6.  IANA Considerations
 
