@@ -1443,7 +1443,18 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-side-channel-attacks">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-side-channel-attacks" class="section-name selfRef">Side-Channel Attacks</a>
         </h3>
-<p id="section-5.2-1">TODO<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">Implementers should follow best practices to mitigate timing, cache, and power side channels, such as:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-2.1">
+            <p id="section-5.2-2.1.1">Using constant-time arithmetic<a href="#section-5.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-2.2">
+            <p id="section-5.2-2.2.1">Maintaining uniform memory access patterns<a href="#section-5.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-2.3">
+            <p id="section-5.2-2.3.1">Avoiding data-dependent branching or memory indexing<a href="#section-5.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
 <div id="randomness-considerations">
