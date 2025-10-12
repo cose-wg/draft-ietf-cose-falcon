@@ -57,6 +57,7 @@ contributor:
 normative:
   RFC7515:
   RFC7517:
+  RFC9052:
   RFC9053:
   RFC9054:
   RFC7518:
@@ -75,8 +76,34 @@ informative:
   USNIST.FIPS.205:
     title: "Stateless Hash-Based Digital Signature Standard"
     target: https://doi.org/10.6028/NIST.FIPS.205
-
----
+  GPV08:
+    title: "Trapdoors for Hard Lattices and New Cryptographic Constructions"
+    author:
+      - ins: C. Gentry
+        name: Craig Gentry
+      - ins: C. Peikert
+        name: Chris Peikert
+      - ins: V. Vaikuntanathan
+        name: Vinod Vaikuntanathan
+    date: 2008
+    seriesinfo: "Proceedings of the 40th Annual ACM Symposium on Theory of Computing (STOC '08), pp. 197–206"
+    target: https://doi.org/10.1145/1374376.1374407
+    doi: 10.1145/1374376.1374407
+    organization: "Association for Computing Machinery (ACM)"
+    address: "New York, NY, USA"
+  DP16:
+    title: "Fast Fourier Orthogonalization"
+    author:
+      - ins: L. Ducas
+        name: Léo Ducas
+      - ins: T. Prest
+        name: Thomas Prest
+    date: 2016
+    seriesinfo: "Proceedings of the 2016 ACM International Symposium on Symbolic and Algebraic Computation (ISSAC '16), pp. 191–198"
+    target: https://doi.org/10.1145/2930889.2930923
+    doi: 10.1145/2930889.2930923
+    organization: "Association for Computing Machinery (ACM)"
+    address: "New York, NY, USA"
 
 --- abstract
 
@@ -90,8 +117,30 @@ It does not define new cryptographic primitives; rather, it specifies how existi
 
 This document specifies JSON Object Signing and Encryption (JOSE) and CBOR Object Signing and Encryption (COSE) serializations for FFT (fast-Fourier transform) over NTRU-Lattice-Based Digital Signature Algorithm (FN-DSA), a Post-Quantum Cryptography (PQC) digital signature scheme defined in US NIST FIPS 206 (expected to be published in late 2026 early 2027).
 
-See Section 11.3 of {{I-D.draft-ietf-pquip-pqc-engineers}} for a comparison of FN-DSA with ML-DSA {{USNIST.FIPS.204}} and SLH-DSA {{USNIST.FIPS.205}}.
+FN-DSA (formerly known as Falcon) is a lattice-based digital signature scheme based on the GPV hash-and-sign framework {{GPV08}}, instantiated over NTRU lattices with fast Fourier sampling techniques {{DP16}}. The core hard problem underlying FN-DSA is the SIS (Short Integer Solution) problem over NTRU lattices.
 
+FN-DSA (formerly known as Falcon) is a digital signature algorithm based on lattice mathematics.
+It follows the hash-and-sign design introduced by Gentry, Peikert, and Vaikuntanathan {{GPV08}}.
+FN-DSA operates on NTRU lattices and uses fast Fourier techniques {{DP16}} to make signature generation compact and efficient.
+The security of the scheme relies on the hardness of solving certain lattice problems, in particular the Short Integer Solution (SIS) problem.
+
+FN-DSA offers:
+
+- Post-quantum security under the assumption that NTRU-SIS remains hard.
+- Compactness in key and signature size.
+- Efficient operations (roughly O(n log n)).
+- A requirement for careful implementation to avoid side-channel leakage (notably Gaussian sampling must be constant-time where applicable).
+
+The sizes of public key, private key, and signature for the parameter sets are the same as in the original Falcon specification:
+
+| Parameter Set | Signature size (bytes) | Public Key size (bytes) | Private Key size (bytes) |
+|---------------|-------------------------|---------------------------|----------------------------|
+| FN-DSA-512    | 666                     | 897                       | 1281                       |
+| FN-DSA-1024   | 1280                    | 1793                      | 2305                       |
+
+For a detailed comparison of FN-DSA with ML-DSA {{USNIST.FIPS.204}} and SLH-DSA {{USNIST.FIPS.205}} see {{Section 11.3 of I-D.draft-ietf-pquip-pqc-engineers}}.
+
+This document defines how FN-DSA is used with JSON Object Signing and Encryption (JOSE) {{RFC7515}} and CBOR Object Signing and Encryption (COSE) {{RFC9052}} {{RFC9053}}.
 
 # Terminology
 
