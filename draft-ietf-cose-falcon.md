@@ -130,6 +130,13 @@ The security considerations of {{RFC7515}}, {{RFC7517}} and {{RFC9053}} apply to
 
 A detailed security analysis of FN-DSA is beyond the scope of this specification; see {{USNIST.FIPS.206}} for additional details.
 
+All the usual caveats for PQC and side-channel resistance apply.
+
+- Implementations MUST ensure that `kty` and `crv` match the intended algorithm variant.  
+- Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.  
+- Public keys SHOULD be validated before use (e.g., against encoding constraints).  
+- Nonces, random values, blinding factors (if used) MUST originate from a secure source of randomness.
+
 ## Validating Public Keys
 
 TODO
