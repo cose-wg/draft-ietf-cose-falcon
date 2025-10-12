@@ -137,7 +137,7 @@ The sizes of public key, private key, and signature for the parameter sets are t
 
 For a detailed comparison of FN-DSA with ML-DSA {{USNIST.FIPS.204}} and SLH-DSA {{USNIST.FIPS.205}} see {{Section 11.3 of I-D.draft-ietf-pquip-pqc-engineers}}.
 
-This document defines how FN-DSA is used with JSON Object Signing and Encryption (JOSE) {{RFC7515}} and CBOR Object Signing and Encryption (COSE) {{RFC8812}}.
+This document defines how FN-DSA is used with JSON Object Signing and Encryption (JOSE) {{RFC7515}} and CBOR Object Signing and Encryption (COSE) {{RFC9052}} {{RFC9053}}.
 
 # Terminology
 
