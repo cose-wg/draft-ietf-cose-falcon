@@ -88,11 +88,11 @@ Table of Contents
      5.3.  Randomness Considerations
    6.  IANA Considerations
      6.1.  New COSE Algorithms
-       6.1.1.  FALCON512
-       6.1.2.  FALCON1024
+       6.1.1.  FN-DSA-512
+       6.1.2.  FN-DSA-1024
      6.2.  New JOSE Algorithms
-       6.2.1.  FALCON512
-       6.2.2.  FALCON1024
+       6.2.1.  FN-DSA-512
+       6.2.2.  FN-DSA-1024
    7.  References
      7.1.  Normative References
      7.2.  Informative References
@@ -182,30 +182,30 @@ Table of Contents
    This document introduces the registration of the following algorithms
    in [IANA.jose]:
 
-   +============+============+================================+
-   | Name       | alg        | Description                    |
-   +============+============+================================+
-   | FALCON512  | FALCON512  | Falcon with parameter set 512  |
-   +------------+------------+--------------------------------+
-   | FALCON1024 | FALCON1024 | Falcon with parameter set 1024 |
-   +------------+------------+--------------------------------+
+   +=============+=============+================================+
+   | Name        | alg         | Description                    |
+   +=============+=============+================================+
+   | FN-DSA-512  | FN-DSA-512  | FN-DSA with parameter set 512  |
+   +-------------+-------------+--------------------------------+
+   | FN-DSA-1024 | FN-DSA-1024 | FN-DSA with parameter set 1024 |
+   +-------------+-------------+--------------------------------+
 
-               Table 2: JOSE Algorithms for FN-DSA
+                Table 2: JOSE Algorithms for FN-DSA
 
    This document introduces the registration of the following algorithms
    in [IANA.cose]:
 
-   +============+============+==========================+
-   | Name       | alg        | Description              |
-   +============+============+==========================+
-   | FALCON512  | TBD1 (-54) | CBOR Object Signing      |
-   |            |            | Algorithm for FALCON512  |
-   +------------+------------+--------------------------+
-   | FALCON1024 | TBD2 (-55) | CBOR Object Signing      |
-   |            |            | Algorithm for FALCON1024 |
-   +------------+------------+--------------------------+
+   +=============+============+==========================+
+   | Name        | alg        | Description              |
+   +=============+============+==========================+
+   | FN-DSA-512  | TBD1 (-54) | CBOR Object Signing      |
+   |             |            | Algorithm for FALCON512  |
+   +-------------+------------+--------------------------+
+   | FN-DSA-1024 | TBD2 (-55) | CBOR Object Signing      |
+   |             |            | Algorithm for FALCON1024 |
+   +-------------+------------+--------------------------+
 
-            Table 3: COSE Algorithms for FN-DSA
+             Table 3: COSE Algorithms for FN-DSA
 
 4.  FN-DSA Keys
 
@@ -229,7 +229,7 @@ Table of Contents
 
    All the usual caveats for PQC and side-channel resistance apply.
 
-   *  Implementations MUST ensure that kty and crv match the intended
+   *  Implementations MUST ensure that alg matches the intended
       algorithm variant.
 
    *  Private implementations of sampling (Gaussian, etc.) must be
@@ -269,9 +269,9 @@ Table of Contents
    Registry.  The following completed registration templates are
    provided as described in [RFC9053] and [RFC9054].
 
-6.1.1.  FALCON512
+6.1.1.  FN-DSA-512
 
-   *  Name: FALCON512
+   *  Name: FN-DSA-512
 
    *  Value: TBD1 (requested assignment -54)
 
@@ -285,9 +285,9 @@ Table of Contents
 
    *  Recommended: Yes
 
-6.1.2.  FALCON1024
+6.1.2.  FN-DSA-1024
 
-   *  Name: FALCON1024
+   *  Name: FN-DSA-1024
 
    *  Value: TBD2 (requested assignment -55)
 
@@ -308,11 +308,12 @@ Table of Contents
    completed registration templates are provided as described in
    [RFC7518].
 
-6.2.1.  FALCON512
+6.2.1.  FN-DSA-512
 
-   *  Algorithm Name: FALCON512
+   *  Algorithm Name: FN-DSA-512
 
-   *  Algorithm Description: FALCON512 as described in US NIST FIPS 206.
+   *  Algorithm Description: FN-DSA-512 as described in US NIST FIPS
+      206.
 
    *  Algorithm Usage Location(s): alg
 
@@ -324,11 +325,11 @@ Table of Contents
 
    *  Algorithm Analysis Documents(s): [USNIST.FIPS.206]
 
-6.2.2.  FALCON1024
+6.2.2.  FN-DSA-1024
 
-   *  Algorithm Name: FALCON1024
+   *  Algorithm Name: FN-DSA-1024
 
-   *  Algorithm Description: FALCON1024 as described in US NIST FIPS
+   *  Algorithm Description: FN-DSA-1024 as described in US NIST FIPS
       206.
 
    *  Algorithm Usage Location(s): alg
@@ -437,30 +438,30 @@ A.1.1.  Key Pair
 
    {
      "kty": "AKP",
-     "alg": "FALCON512",
+     "alg": "FN-DSA-512",
      "pub": "V53SIdVF...uvw2nuCQ",
      "priv": "V53SIdVF...cDKLbsBY"
    }
 
-              Figure 1: Example FALCON512 Private JSON Web Key
+             Figure 1: Example FN-DSA-512 Private JSON Web Key
 
    {
      "kty": "AKP",
-     "alg": "FALCON512",
+     "alg": "FN-DSA-512",
      "pub": "V53SIdVF...uvw2nuCQ"
    }
 
-              Figure 2: Example FALCON512 Public JSON Web Key
+              Figure 2: Example FN-DSA-512 Public JSON Web Key
 
 A.1.2.  JSON Web Signature
 
    {
      "kid: "clpwZ...RWYU9CUF",
-     "alg": "FALCON512",
+     "alg": "FN-DSA-512",
      "typ": "JWT"
    }
 
-      Figure 3: Example FALCON512 Decoded Protected Header for a JSON
+      Figure 3: Example FN-DSA-512 Decoded Protected Header for a JSON
                                Web Signature
 
 A.2.  COSE
@@ -468,34 +469,34 @@ A.2.  COSE
 A.2.1.  Key Pair
 
    {
-     / kty AKP       / 1: 7,
-     / alg FALCON512 / 3: -54,
-     / public key    / -1: h'7803c0f9...3f6e2c70',
-     / private key   / -2: h'7803c0f9...3bba7abd'
+     / kty AKP        / 1: 7,
+     / alg FN-DSA-512 / 3: -54,
+     / public key     / -1: h'7803c0f9...3f6e2c70',
+     / private key    / -2: h'7803c0f9...3bba7abd'
    }
 
-                Figure 4: Example FALCON512 Private COSE Key
+               Figure 4: Example FN-DSA-512 Private COSE Key
 
    {
-     / kty AKP       / 1: 7,
-     / alg FALCON512 / 3: -54,
-     / public key    / -1: h'7803c0f9...3f6e2c70',
+     / kty AKP         / 1: 7,
+     / alg FN-DSA-512  / 3: -54,
+     / public key      / -1: h'7803c0f9...3f6e2c70',
    }
 
-                Figure 5: Example FALCON512 Public COSE Key
+                Figure 5: Example FN-DSA-512 Public COSE Key
 
 A.2.2.  COSE Sign1
 
    18([
      <<{
-       / alg FALCON512 / 1: -54,
+       / alg FN-DSA-512 / 1: -54,
      }>>,
      / unprotected / {},
      / payload / h'66616b65',
      / signature / h'53e855e8...0f263549'
    ])
 
-                   Figure 6: Example FALCON512 COSE Sign1
+                  Figure 6: Example FN-DSA-512 COSE Sign1
 
 Appendix B.  Document History
 

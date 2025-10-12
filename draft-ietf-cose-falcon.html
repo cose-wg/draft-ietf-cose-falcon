@@ -1193,10 +1193,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-new-cose-algorithms" class="internal xref">New COSE Algorithms</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.1">
-                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#section-6.1.1" class="auto internal xref">6.1.1</a>.  <a href="#name-falcon512" class="internal xref">FALCON512</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#section-6.1.1" class="auto internal xref">6.1.1</a>.  <a href="#name-fn-dsa-512" class="internal xref">FN-DSA-512</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.2">
-                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="auto internal xref">6.1.2</a>.  <a href="#name-falcon1024" class="internal xref">FALCON1024</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="auto internal xref">6.1.2</a>.  <a href="#name-fn-dsa-1024" class="internal xref">FN-DSA-1024</a></p>
 </li>
                 </ul>
 </li>
@@ -1204,10 +1204,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-new-jose-algorithms" class="internal xref">New JOSE Algorithms</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
-                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-falcon512-2" class="internal xref">FALCON512</a></p>
+                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-fn-dsa-512-2" class="internal xref">FN-DSA-512</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.2">
-                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-falcon1024-2" class="internal xref">FALCON1024</a></p>
+                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-fn-dsa-1024-2" class="internal xref">FN-DSA-1024</a></p>
 </li>
                 </ul>
 </li>
@@ -1356,14 +1356,14 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         </thead>
         <tbody>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">FALCON512</td>
-            <td class="text-left" rowspan="1" colspan="1">FALCON512</td>
-            <td class="text-left" rowspan="1" colspan="1">Falcon with parameter set 512</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-512</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-512</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA with parameter set 512</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">FALCON1024</td>
-            <td class="text-left" rowspan="1" colspan="1">FALCON1024</td>
-            <td class="text-left" rowspan="1" colspan="1">Falcon with parameter set 1024</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-1024</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-1024</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA with parameter set 1024</td>
           </tr>
         </tbody>
       </table>
@@ -1384,12 +1384,12 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         </thead>
         <tbody>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">FALCON512</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-512</td>
             <td class="text-left" rowspan="1" colspan="1">TBD1 (-54)</td>
             <td class="text-left" rowspan="1" colspan="1">CBOR Object Signing Algorithm for FALCON512</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">FALCON1024</td>
+            <td class="text-left" rowspan="1" colspan="1">FN-DSA-1024</td>
             <td class="text-left" rowspan="1" colspan="1">TBD2 (-55)</td>
             <td class="text-left" rowspan="1" colspan="1">CBOR Object Signing Algorithm for FALCON1024</td>
           </tr>
@@ -1418,7 +1418,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-5-3">All the usual caveats for PQC and side-channel resistance apply.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-4.1">
-          <p id="section-5-4.1.1">Implementations <span class="bcp14">MUST</span> ensure that <code>kty</code> and <code>crv</code> match the intended algorithm variant.<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
+          <p id="section-5-4.1.1">Implementations <span class="bcp14">MUST</span> ensure that <code>alg</code> matches the intended algorithm variant.<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-5-4.2">
           <p id="section-5-4.2.1">Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.<a href="#section-5-4.2.1" class="pilcrow">¶</a></p>
@@ -1479,14 +1479,14 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         </h3>
 <p id="section-6.1-1">IANA is requested to add the following entries to the COSE Algorithms Registry.
 The following completed registration templates are provided as described in <span>[<a href="#RFC9053" class="cite xref">RFC9053</a>]</span> and <span>[<a href="#RFC9054" class="cite xref">RFC9054</a>]</span>.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<div id="falcon512">
+<div id="fn-dsa-512">
 <section id="section-6.1.1">
-          <h4 id="name-falcon512">
-<a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-falcon512" class="section-name selfRef">FALCON512</a>
+          <h4 id="name-fn-dsa-512">
+<a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-fn-dsa-512" class="section-name selfRef">FN-DSA-512</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-6.1.1-1.1">
-              <p id="section-6.1.1-1.1.1">Name: FALCON512<a href="#section-6.1.1-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.1.1-1.1.1">Name: FN-DSA-512<a href="#section-6.1.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.1.1-1.2">
               <p id="section-6.1.1-1.2.1">Value: TBD1 (requested assignment -54)<a href="#section-6.1.1-1.2.1" class="pilcrow">¶</a></p>
@@ -1509,14 +1509,14 @@ The following completed registration templates are provided as described in <spa
           </ul>
 </section>
 </div>
-<div id="falcon1024">
+<div id="fn-dsa-1024">
 <section id="section-6.1.2">
-          <h4 id="name-falcon1024">
-<a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-falcon1024" class="section-name selfRef">FALCON1024</a>
+          <h4 id="name-fn-dsa-1024">
+<a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-fn-dsa-1024" class="section-name selfRef">FN-DSA-1024</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-6.1.2-1.1">
-              <p id="section-6.1.2-1.1.1">Name: FALCON1024<a href="#section-6.1.2-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.1.2-1.1.1">Name: FN-DSA-1024<a href="#section-6.1.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.1.2-1.2">
               <p id="section-6.1.2-1.2.1">Value: TBD2 (requested assignment -55)<a href="#section-6.1.2-1.2.1" class="pilcrow">¶</a></p>
@@ -1548,17 +1548,17 @@ The following completed registration templates are provided as described in <spa
         </h3>
 <p id="section-6.2-1">IANA is requested to add the following entries to the JSON Web Signature and Encryption Algorithms Registry.
 The following completed registration templates are provided as described in <span>[<a href="#RFC7518" class="cite xref">RFC7518</a>]</span>.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<div id="falcon512-1">
+<div id="fn-dsa-512-1">
 <section id="section-6.2.1">
-          <h4 id="name-falcon512-2">
-<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-falcon512-2" class="section-name selfRef">FALCON512</a>
+          <h4 id="name-fn-dsa-512-2">
+<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-fn-dsa-512-2" class="section-name selfRef">FN-DSA-512</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-6.2.1-1.1">
-              <p id="section-6.2.1-1.1.1">Algorithm Name: FALCON512<a href="#section-6.2.1-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.2.1-1.1.1">Algorithm Name: FN-DSA-512<a href="#section-6.2.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.2.1-1.2">
-              <p id="section-6.2.1-1.2.1">Algorithm Description: FALCON512 as described in US NIST FIPS 206.<a href="#section-6.2.1-1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-6.2.1-1.2.1">Algorithm Description: FN-DSA-512 as described in US NIST FIPS 206.<a href="#section-6.2.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.2.1-1.3">
               <p id="section-6.2.1-1.3.1">Algorithm Usage Location(s): alg<a href="#section-6.2.1-1.3.1" class="pilcrow">¶</a></p>
@@ -1578,17 +1578,17 @@ The following completed registration templates are provided as described in <spa
           </ul>
 </section>
 </div>
-<div id="falcon1024-1">
+<div id="fn-dsa-1024-1">
 <section id="section-6.2.2">
-          <h4 id="name-falcon1024-2">
-<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-falcon1024-2" class="section-name selfRef">FALCON1024</a>
+          <h4 id="name-fn-dsa-1024-2">
+<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-fn-dsa-1024-2" class="section-name selfRef">FN-DSA-1024</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-6.2.2-1.1">
-              <p id="section-6.2.2-1.1.1">Algorithm Name: FALCON1024<a href="#section-6.2.2-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.2.2-1.1.1">Algorithm Name: FN-DSA-1024<a href="#section-6.2.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.2.2-1.2">
-              <p id="section-6.2.2-1.2.1">Algorithm Description: FALCON1024 as described in US NIST FIPS 206.<a href="#section-6.2.2-1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-6.2.2-1.2.1">Algorithm Description: FN-DSA-1024 as described in US NIST FIPS 206.<a href="#section-6.2.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.2.2-1.3">
               <p id="section-6.2.2-1.3.1">Algorithm Usage Location(s): alg<a href="#section-6.2.2-1.3.1" class="pilcrow">¶</a></p>
@@ -1720,35 +1720,35 @@ The following completed registration templates are provided as described in <spa
           <h4 id="name-key-pair">
 <a href="#appendix-A.1.1" class="section-number selfRef">A.1.1. </a><a href="#name-key-pair" class="section-name selfRef">Key Pair</a>
           </h4>
-<span id="name-example-falcon512-private-j"></span><div id="FALCON512-private-jwk">
+<span id="name-example-fn-dsa-512-private-"></span><div id="FN-DSA-512-private-jwk">
 <figure id="figure-1">
             <div class="lang-json sourcecode" id="appendix-A.1.1-1.1">
 <pre>
 {
   "kty": "AKP",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "pub": "V53SIdVF...uvw2nuCQ",
   "priv": "V53SIdVF...cDKLbsBY"
 }
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
-<a href="#name-example-falcon512-private-j" class="selfRef">Example FALCON512 Private JSON Web Key</a>
+<a href="#name-example-fn-dsa-512-private-" class="selfRef">Example FN-DSA-512 Private JSON Web Key</a>
             </figcaption></figure>
 </div>
-<span id="name-example-falcon512-public-js"></span><div id="FALCON512-public-jwk">
+<span id="name-example-fn-dsa-512-public-j"></span><div id="FN-DSA-512-public-jwk">
 <figure id="figure-2">
             <div class="lang-json sourcecode" id="appendix-A.1.1-2.1">
 <pre>
 {
   "kty": "AKP",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "pub": "V53SIdVF...uvw2nuCQ"
 }
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-example-falcon512-public-js" class="selfRef">Example FALCON512 Public JSON Web Key</a>
+<a href="#name-example-fn-dsa-512-public-j" class="selfRef">Example FN-DSA-512 Public JSON Web Key</a>
             </figcaption></figure>
 </div>
 </section>
@@ -1758,19 +1758,19 @@ The following completed registration templates are provided as described in <spa
           <h4 id="name-json-web-signature">
 <a href="#appendix-A.1.2" class="section-number selfRef">A.1.2. </a><a href="#name-json-web-signature" class="section-name selfRef">JSON Web Signature</a>
           </h4>
-<span id="name-example-falcon512-decoded-p"></span><div id="FALCON512-jose-jws">
+<span id="name-example-fn-dsa-512-decoded-"></span><div id="FN-DSA-512-jose-jws">
 <figure id="figure-3">
             <div class="alignLeft art-text artwork" id="appendix-A.1.2-1.1">
 <pre>
 {
   "kid: "clpwZ...RWYU9CUF",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "typ": "JWT"
 }
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
-<a href="#name-example-falcon512-decoded-p" class="selfRef">Example FALCON512 Decoded Protected Header for a JSON Web Signature</a>
+<a href="#name-example-fn-dsa-512-decoded-" class="selfRef">Example FN-DSA-512 Decoded Protected Header for a JSON Web Signature</a>
             </figcaption></figure>
 </div>
 </section>
@@ -1787,35 +1787,35 @@ The following completed registration templates are provided as described in <spa
           <h4 id="name-key-pair-2">
 <a href="#appendix-A.2.1" class="section-number selfRef">A.2.1. </a><a href="#name-key-pair-2" class="section-name selfRef">Key Pair</a>
           </h4>
-<span id="name-example-falcon512-private-c"></span><div id="FALCON512-private-cose-key">
+<span id="name-example-fn-dsa-512-private-c"></span><div id="FN-DSA-512-private-cose-key">
 <figure id="figure-4">
             <div class="lang-cbor-diag sourcecode" id="appendix-A.2.1-1.1">
 <pre>
 {
-  / kty AKP       / 1: 7,
-  / alg FALCON512 / 3: -54,
-  / public key    / -1: h'7803c0f9...3f6e2c70',
-  / private key   / -2: h'7803c0f9...3bba7abd'
+  / kty AKP        / 1: 7,
+  / alg FN-DSA-512 / 3: -54,
+  / public key     / -1: h'7803c0f9...3f6e2c70',
+  / private key    / -2: h'7803c0f9...3bba7abd'
 }
 </pre>
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
-<a href="#name-example-falcon512-private-c" class="selfRef">Example FALCON512 Private COSE Key</a>
+<a href="#name-example-fn-dsa-512-private-c" class="selfRef">Example FN-DSA-512 Private COSE Key</a>
             </figcaption></figure>
 </div>
-<span id="name-example-falcon512-public-co"></span><div id="FALCON512-public-cose-key">
+<span id="name-example-fn-dsa-512-public-c"></span><div id="FN-DSA-512-public-cose-key">
 <figure id="figure-5">
             <div class="lang-cbor-diag sourcecode" id="appendix-A.2.1-2.1">
 <pre>
 {
-  / kty AKP       / 1: 7,
-  / alg FALCON512 / 3: -54,
-  / public key    / -1: h'7803c0f9...3f6e2c70',
+  / kty AKP         / 1: 7,
+  / alg FN-DSA-512  / 3: -54,
+  / public key      / -1: h'7803c0f9...3f6e2c70',
 }
 </pre>
 </div>
 <figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
-<a href="#name-example-falcon512-public-co" class="selfRef">Example FALCON512 Public COSE Key</a>
+<a href="#name-example-fn-dsa-512-public-c" class="selfRef">Example FN-DSA-512 Public COSE Key</a>
             </figcaption></figure>
 </div>
 </section>
@@ -1825,13 +1825,13 @@ The following completed registration templates are provided as described in <spa
           <h4 id="name-cose-sign1">
 <a href="#appendix-A.2.2" class="section-number selfRef">A.2.2. </a><a href="#name-cose-sign1" class="section-name selfRef">COSE Sign1</a>
           </h4>
-<span id="name-example-falcon512-cose-sign"></span><div id="FALCON512-cose-sign-1-diagnostic">
+<span id="name-example-fn-dsa-512-cose-sig"></span><div id="FN-DSA-512-cose-sign-1-diagnostic">
 <figure id="figure-6">
             <div class="lang-cbor-diag sourcecode" id="appendix-A.2.2-1.1">
 <pre>
 18([
   &lt;&lt;{
-    / alg FALCON512 / 1: -54,
+    / alg FN-DSA-512 / 1: -54,
   }&gt;&gt;,
   / unprotected / {},
   / payload / h'66616b65',
@@ -1840,7 +1840,7 @@ The following completed registration templates are provided as described in <spa
 </pre>
 </div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
-<a href="#name-example-falcon512-cose-sign" class="selfRef">Example FALCON512 COSE Sign1</a>
+<a href="#name-example-fn-dsa-512-cose-sig" class="selfRef">Example FN-DSA-512 COSE Sign1</a>
             </figcaption></figure>
 </div>
 </section>
