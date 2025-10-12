@@ -23,6 +23,11 @@ Abstract
    signature scheme defined in US NIST FIPS 206 (expected to be
    published in late 2026 early 2027).
 
+   It does not define new cryptographic primitives; rather, it specifies
+   how existing FN-DSA mechanisms are serialized for use in JOSE and
+   COSE.  This document registers signature algorithms for JOSE and
+   COSE, specifically FN-DSA-512 and FN-DSA-1024.
+
 About This Document
 
    This note is to be removed before publishing as an RFC.
