@@ -132,7 +132,7 @@ A detailed security analysis of FN-DSA is beyond the scope of this specification
 
 All the usual caveats for PQC and side-channel resistance apply.
 
-- Implementations MUST ensure that `kty` and `crv` match the intended algorithm variant.  
+- Implementations MUST ensure that `kty` and `crv` match the intended algorithm variant.
 - Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.
 - Public keys SHOULD be validated before use (e.g., against encoding constraints).  
 - Nonces, random values, blinding factors (if used) MUST originate from a secure source of randomness.
