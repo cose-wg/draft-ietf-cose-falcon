@@ -1,0 +1,484 @@
+
+
+
+
+CBOR Object Signing and Encryption                            M. Prorock
+Internet-Draft                                                  mesur.io
+Intended status: Standards Track                               O. Steele
+Expires: 15 April 2026                                      Tradeverifyd
+                                                           H. Tschofenig
+                                                                   H-BRS
+                                                         12 October 2025
+
+
+                        FN-DSA for JOSE and COSE
+                     draft-ietf-cose-falcon-latest
+
+Abstract
+
+   This document specifies JSON Object Signing and Encryption (JOSE) and
+   CBOR Object Signing and Encryption (COSE) serializations for FFT
+   (fast-Fourier transform) over NTRU-Lattice-Based Digital Signature
+   Algorithm (FN-DSA), a Post-Quantum Cryptography (PQC) digital
+   signature scheme defined in US NIST FIPS 206 (expected to be
+   published in late 2026 early 2027).
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at https://cose-
+   wg.github.io/draft-ietf-cose-falcon/draft-ietf-cose-falcon.html.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-cose-falcon/.
+
+   Discussion of this document takes place on the CBOR Object Signing
+   and Encryption Working Group mailing list (mailto:cose@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/cose/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/cose/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/cose-wg/draft-ietf-cose-falcon.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 15 April 2026.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Terminology
+   3.  The FN-DSA Algorithm Family
+   4.  FN-DSA Keys
+   5.  Security Considerations
+     5.1.  Validating Public Keys
+     5.2.  Side-Channel Attacks
+     5.3.  Randomness
+   6.  IANA Considerations
+     6.1.  New COSE Algorithms
+       6.1.1.  FALCON512
+       6.1.2.  FALCON1024
+     6.2.  New JOSE Algorithms
+       6.2.1.  FALCON512
+       6.2.2.  FALCON1024
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
+   Appendix A.  Examples
+     A.1.  JOSE
+       A.1.1.  Key Pair
+       A.1.2.  JSON Web Signature
+     A.2.  COSE
+       A.2.1.  Key Pair
+       A.2.2.  COSE Sign1
+   Appendix B.  Document History
+   Acknowledgments
+   Contributors
+   Authors' Addresses
+
+1.  Introduction
+
+   This document specifies JSON Object Signing and Encryption (JOSE) and
+   CBOR Object Signing and Encryption (COSE) serializations for FFT
+   (fast-Fourier transform) over NTRU-Lattice-Based Digital Signature
+   Algorithm (FN-DSA), a Post-Quantum Cryptography (PQC) digital
+   signature scheme defined in US NIST FIPS 206 (expected to be
+   published in late 2026 early 2027).
+
+   See Section 11.3 of [I-D.draft-ietf-pquip-pqc-engineers] for a
+   comparison of FN-DSA with ML-DSA [USNIST.FIPS.204] and SLH-DSA
+   [USNIST.FIPS.205].
+
+2.  Terminology
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  The FN-DSA Algorithm Family
+
+   The FN-DSA Signature Scheme is parameterized to support different
+   security levels.
+
+   This document introduces the registration of the following algorithms
+   in [IANA.jose]:
+
+   +============+============+================================+
+   | Name       | alg        | Description                    |
+   +============+============+================================+
+   | FALCON512  | FALCON512  | Falcon with parameter set 512  |
+   +------------+------------+--------------------------------+
+   | FALCON1024 | FALCON1024 | Falcon with parameter set 1024 |
+   +------------+------------+--------------------------------+
+
+               Table 1: JOSE Algorithms for FN-DSA
+
+   This document introduces the registration of the following algorithms
+   in [IANA.cose]:
+
+   +============+============+==========================+
+   | Name       | alg        | Description              |
+   +============+============+==========================+
+   | FALCON512  | TBD1 (-54) | CBOR Object Signing      |
+   |            |            | Algorithm for FALCON512  |
+   +------------+------------+--------------------------+
+   | FALCON1024 | TBD2 (-55) | CBOR Object Signing      |
+   |            |            | Algorithm for FALCON1024 |
+   +------------+------------+--------------------------+
+
+            Table 2: COSE Algorithms for FN-DSA
+
+4.  FN-DSA Keys
+
+   The FN-DSA Algorithm Family uses the Algorithm Key Pair (AKP) key
+   type, as defined in [I-D.draft-ietf-cose-dilithium].
+
+   The specific algorithms for FN-DSA, such as FALCON512 and FALCON1024,
+   are defined in this document and are used in the alg value of an AKP
+   key representation to specify the corresponding algorithm.
+
+   Thumbprints for FN-DSA keys are computed according to the process
+   described in [I-D.draft-ietf-cose-dilithium].
+
+5.  Security Considerations
+
+   The security considerations of [RFC7515], [RFC7517] and [RFC9053]
+   apply to this specification as well.
+
+   A detailed security analysis of FN-DSA is beyond the scope of this
+   specification; see [USNIST.FIPS.206] for additional details.
+
+   All the usual caveats for PQC and side-channel resistance apply.
+
+   *  Implementations MUST ensure that kty and crv match the intended
+      algorithm variant.
+
+   *  Private implementations of sampling (Gaussian, etc.) must be
+      constant-time to prevent leakage.
+
+   *  Public keys SHOULD be validated before use (e.g., against encoding
+      constraints).
+
+   *  Nonces, random values, blinding factors (if used) MUST originate
+      from a secure source of randomness.
+
+5.1.  Validating Public Keys
+
+   TODO
+
+5.2.  Side-Channel Attacks
+
+   TODO
+
+5.3.  Randomness
+
+   TODO
+
+6.  IANA Considerations
+
+6.1.  New COSE Algorithms
+
+   IANA is requested to add the following entries to the COSE Algorithms
+   Registry.  The following completed registration templates are
+   provided as described in [RFC9053] and [RFC9054].
+
+6.1.1.  FALCON512
+
+   *  Name: FALCON512
+
+   *  Value: TBD1 (requested assignment -54)
+
+   *  Description: CBOR Object Signing Algorithm for FALCON512
+
+   *  Capabilities: [kty]
+
+   *  Change Controller: IETF
+
+   *  Reference: RFC XXXX
+
+   *  Recommended: Yes
+
+6.1.2.  FALCON1024
+
+   *  Name: FALCON1024
+
+   *  Value: TBD2 (requested assignment -55)
+
+   *  Description: CBOR Object Signing Algorithm for FALCON1024
+
+   *  Capabilities: [kty]
+
+   *  Change Controller: IETF
+
+   *  Reference: RFC XXXX
+
+   *  Recommended: Yes
+
+6.2.  New JOSE Algorithms
+
+   IANA is requested to add the following entries to the JSON Web
+   Signature and Encryption Algorithms Registry.  The following
+   completed registration templates are provided as described in
+   [RFC7518].
+
+6.2.1.  FALCON512
+
+   *  Algorithm Name: FALCON512
+
+   *  Algorithm Description: FALCON512 as described in US NIST FIPS 206.
+
+   *  Algorithm Usage Location(s): alg
+
+   *  JOSE Implementation Requirements: Optional
+
+   *  Change Controller: IETF
+
+   *  Specification Document(s): RFC XXXX
+
+   *  Algorithm Analysis Documents(s): [USNIST.FIPS.206]
+
+6.2.2.  FALCON1024
+
+   *  Algorithm Name: FALCON1024
+
+   *  Algorithm Description: FALCON1024 as described in US NIST FIPS
+      206.
+
+   *  Algorithm Usage Location(s): alg
+
+   *  JOSE Implementation Requirements: Optional
+
+   *  Change Controller: IETF
+
+   *  Specification Document(s): RFC XXXX
+
+   *  Algorithm Analysis Documents(s): [USNIST.FIPS.206]
+
+7.  References
+
+7.1.  Normative References
+
+   [I-D.draft-ietf-cose-dilithium]
+              Prorock, M. and O. Steele, "ML-DSA for JOSE and COSE",
+              Work in Progress, Internet-Draft, draft-ietf-cose-
+              dilithium-09, 12 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-cose-
+              dilithium-09>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC7515]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web
+              Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May
+              2015, <https://www.rfc-editor.org/rfc/rfc7515>.
+
+   [RFC7517]  Jones, M., "JSON Web Key (JWK)", RFC 7517,
+              DOI 10.17487/RFC7517, May 2015,
+              <https://www.rfc-editor.org/rfc/rfc7517>.
+
+   [RFC7518]  Jones, M., "JSON Web Algorithms (JWA)", RFC 7518,
+              DOI 10.17487/RFC7518, May 2015,
+              <https://www.rfc-editor.org/rfc/rfc7518>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC9053]  Schaad, J., "CBOR Object Signing and Encryption (COSE):
+              Initial Algorithms", RFC 9053, DOI 10.17487/RFC9053,
+              August 2022, <https://www.rfc-editor.org/rfc/rfc9053>.
+
+   [RFC9054]  Schaad, J., "CBOR Object Signing and Encryption (COSE):
+              Hash Algorithms", RFC 9054, DOI 10.17487/RFC9054, August
+              2022, <https://www.rfc-editor.org/rfc/rfc9054>.
+
+   [USNIST.FIPS.206]
+              "Fast Fourier Transform over NTRU-Lattice-Based Digital
+              Signature Algorithm", n.d., <https://www.nist.gov/news-
+              events/news/2024/08/nist-releases-first-3-finalized-post-
+              quantum-encryption-standards>.
+
+7.2.  Informative References
+
+   [I-D.draft-ietf-pquip-pqc-engineers]
+              Banerjee, A., Reddy.K, T., Schoinianakis, D., Hollebeek,
+              T., and M. Ounsworth, "Post-Quantum Cryptography for
+              Engineers", Work in Progress, Internet-Draft, draft-ietf-
+              pquip-pqc-engineers-14, 25 August 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-pquip-
+              pqc-engineers-14>.
+
+   [IANA.cose]
+              IANA, "CBOR Object Signing and Encryption (COSE)",
+              <https://www.iana.org/assignments/cose>.
+
+   [IANA.jose]
+              IANA, "JSON Object Signing and Encryption (JOSE)",
+              <https://www.iana.org/assignments/jose>.
+
+   [USNIST.FIPS.204]
+              "Module-Lattice-Based Digital Signature Standard", n.d.,
+              <https://doi.org/10.6028/NIST.FIPS.204>.
+
+   [USNIST.FIPS.205]
+              "Stateless Hash-Based Digital Signature Standard", n.d.,
+              <https://doi.org/10.6028/NIST.FIPS.205>.
+
+Appendix A.  Examples
+
+A.1.  JOSE
+
+A.1.1.  Key Pair
+
+   {
+     "kty": "AKP",
+     "alg": "FALCON512",
+     "pub": "V53SIdVF...uvw2nuCQ",
+     "priv": "V53SIdVF...cDKLbsBY"
+   }
+
+              Figure 1: Example FALCON512 Private JSON Web Key
+
+   {
+     "kty": "AKP",
+     "alg": "FALCON512",
+     "pub": "V53SIdVF...uvw2nuCQ"
+   }
+
+              Figure 2: Example FALCON512 Public JSON Web Key
+
+A.1.2.  JSON Web Signature
+
+   {
+     "kid: "clpwZ...RWYU9CUF",
+     "alg": "FALCON512",
+     "typ": "JWT"
+   }
+
+      Figure 3: Example FALCON512 Decoded Protected Header for a JSON
+                               Web Signature
+
+A.2.  COSE
+
+A.2.1.  Key Pair
+
+   {
+     / kty AKP       / 1: 7,
+     / alg FALCON512 / 3: -54,
+     / public key    / -1: h'7803c0f9...3f6e2c70',
+     / private key   / -2: h'7803c0f9...3bba7abd'
+   }
+
+                Figure 4: Example FALCON512 Private COSE Key
+
+   {
+     / kty AKP       / 1: 7,
+     / alg FALCON512 / 3: -54,
+     / public key    / -1: h'7803c0f9...3f6e2c70',
+   }
+
+                Figure 5: Example FALCON512 Public COSE Key
+
+A.2.2.  COSE Sign1
+
+   18([
+     <<{
+       / alg FALCON512 / 1: -54,
+     }>>,
+     / unprotected / {},
+     / payload / h'66616b65',
+     / signature / h'53e855e8...0f263549'
+   ])
+
+                   Figure 6: Example FALCON512 COSE Sign1
+
+Appendix B.  Document History
+
+   -02
+
+   *  Converted to markdown
+
+   *  Applied feedback from IESG Evaluation on ML-DSA
+
+   *  Revised references
+
+   *  Revised abstract
+
+   -01
+
+   *  Added Acknowledgements
+
+   *  Added Document History
+
+   *  Updated test vectors
+
+Acknowledgments
+
+   We would like to especially thank David Balenson for careful review
+   of approaches taken in this document.  We would also like to thank
+   Michael B.  Jones for guidance in authoring.
+
+Contributors
+
+   Rafael Misoczki
+   Google
+   Email: rafaelmisoczki@google.com
+
+
+   Michael Osborne
+   IBM
+   Email: osb@zurich.ibm.com
+
+
+   Christine Cloostermans
+   NXP
+   Email: christine.cloostermans@nxp.com
+
+
+Authors' Addresses
+
+   Michael Prorock
+   mesur.io
+   Email: mprorock@mesur.io
+
+
+   Orie Steele
+   Tradeverifyd
+   Email: orie@or13.io
+
+
+   Hannes Tschofenig
+   University of Applied Sciences Bonn-Rhein-Sieg
+   Germany
+   Email: hannes.tschofenig@gmx.net
