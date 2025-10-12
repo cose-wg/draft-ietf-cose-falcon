@@ -154,16 +154,16 @@ This document introduces the registration of the following algorithms in {{-IANA
 
 | Name       | alg | Description |
 |-------------|------|-------------|
-| FALCON512  | FALCON512     | Falcon with parameter set 512 |
-| FALCON1024  | FALCON1024     | Falcon with parameter set 1024 |
+| FN-DSA-512  | FN-DSA-512     | FN-DSA with parameter set 512 |
+| FN-DSA-1024  | FN-DSA-1024     | FN-DSA with parameter set 1024 |
 {: #jose-algorithms align="left" title="JOSE Algorithms for FN-DSA"}
 
 This document introduces the registration of the following algorithms in {{-IANA.cose}}:
 
 | Name       | alg | Description |
 |-------------|------|-------------|
-| FALCON512  | TBD1 (-54) | CBOR Object Signing Algorithm for FALCON512 |
-| FALCON1024  | TBD2 (-55) | CBOR Object Signing Algorithm for FALCON1024 |
+| FN-DSA-512  | TBD1 (-54) | CBOR Object Signing Algorithm for FALCON512 |
+| FN-DSA-1024  | TBD2 (-55) | CBOR Object Signing Algorithm for FALCON1024 |
 {: #cose-algorithms align="left" title="COSE Algorithms for FN-DSA"}
 
 # FN-DSA Keys
@@ -182,7 +182,7 @@ A detailed security analysis of FN-DSA is beyond the scope of this specification
 
 All the usual caveats for PQC and side-channel resistance apply.
 
-- Implementations MUST ensure that `kty` and `crv` match the intended algorithm variant.
+- Implementations MUST ensure that `alg` matches the intended algorithm variant.
 - Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.
 - Public keys SHOULD be validated before use (e.g., against encoding constraints).
 - Nonces, random values, blinding factors (if used) MUST originate from a secure source of randomness.
@@ -212,9 +212,9 @@ All required randomness (e.g. for signature generation) MUST be derived from a c
 IANA is requested to add the following entries to the COSE Algorithms Registry.
 The following completed registration templates are provided as described in {{RFC9053}} and {{RFC9054}}.
 
-### FALCON512
+### FN-DSA-512
 
-* Name: FALCON512
+* Name: FN-DSA-512
 * Value: TBD1 (requested assignment -54)
 * Description: CBOR Object Signing Algorithm for FALCON512
 * Capabilities: `[kty]`
@@ -222,9 +222,9 @@ The following completed registration templates are provided as described in {{RF
 * Reference: RFC XXXX
 * Recommended: Yes
 
-### FALCON1024
+### FN-DSA-1024
 
-* Name: FALCON1024
+* Name: FN-DSA-1024
 * Value: TBD2 (requested assignment -55)
 * Description: CBOR Object Signing Algorithm for FALCON1024
 * Capabilities: `[kty]`
@@ -237,20 +237,20 @@ The following completed registration templates are provided as described in {{RF
 IANA is requested to add the following entries to the JSON Web Signature and Encryption Algorithms Registry.
 The following completed registration templates are provided as described in {{RFC7518}}.
 
-### FALCON512
+### FN-DSA-512
 
-* Algorithm Name: FALCON512
-* Algorithm Description: FALCON512 as described in US NIST FIPS 206.
+* Algorithm Name: FN-DSA-512
+* Algorithm Description: FN-DSA-512 as described in US NIST FIPS 206.
 * Algorithm Usage Location(s): alg
 * JOSE Implementation Requirements: Optional
 * Change Controller: IETF
 * Specification Document(s): RFC XXXX
 * Algorithm Analysis Documents(s): {{USNIST.FIPS.206}}
 
-### FALCON1024
+### FN-DSA-1024
 
-* Algorithm Name: FALCON1024
-* Algorithm Description: FALCON1024 as described in US NIST FIPS 206.
+* Algorithm Name: FN-DSA-1024
+* Algorithm Description: FN-DSA-1024 as described in US NIST FIPS 206.
 * Algorithm Usage Location(s): alg
 * JOSE Implementation Requirements: Optional
 * Change Controller: IETF
@@ -268,21 +268,21 @@ The following completed registration templates are provided as described in {{RF
 ~~~json
 {
   "kty": "AKP",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "pub": "V53SIdVF...uvw2nuCQ",
   "priv": "V53SIdVF...cDKLbsBY"
 }
 ~~~
-{: #FALCON512-private-jwk title="Example FALCON512 Private JSON Web Key"}
+{: #FN-DSA-512-private-jwk title="Example FN-DSA-512 Private JSON Web Key"}
 
 ~~~json
 {
   "kty": "AKP",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "pub": "V53SIdVF...uvw2nuCQ"
 }
 ~~~
-{: #FALCON512-public-jwk title="Example FALCON512 Public JSON Web Key"}
+{: #FN-DSA-512-public-jwk title="Example FN-DSA-512 Public JSON Web Key"}
 
 
 ### JSON Web Signature
@@ -290,11 +290,11 @@ The following completed registration templates are provided as described in {{RF
 ~~~
 {
   "kid: "clpwZ...RWYU9CUF",
-  "alg": "FALCON512",
+  "alg": "FN-DSA-512",
   "typ": "JWT"
 }
 ~~~
-{: #FALCON512-jose-jws title="Example FALCON512 Decoded Protected Header for a JSON Web Signature"}
+{: #FN-DSA-512-jose-jws title="Example FN-DSA-512 Decoded Protected Header for a JSON Web Signature"}
 
 ## COSE
 
@@ -302,36 +302,36 @@ The following completed registration templates are provided as described in {{RF
 
 ~~~~ cbor-diag
 {
-  / kty AKP       / 1: 7,
-  / alg FALCON512 / 3: -54,
-  / public key    / -1: h'7803c0f9...3f6e2c70',
-  / private key   / -2: h'7803c0f9...3bba7abd'
+  / kty AKP        / 1: 7,
+  / alg FN-DSA-512 / 3: -54,
+  / public key     / -1: h'7803c0f9...3f6e2c70',
+  / private key    / -2: h'7803c0f9...3bba7abd'
 }
 ~~~~
-{: #FALCON512-private-cose-key title="Example FALCON512 Private COSE Key"}
+{: #FN-DSA-512-private-cose-key title="Example FN-DSA-512 Private COSE Key"}
 
 ~~~~ cbor-diag
 {
-  / kty AKP       / 1: 7,
-  / alg FALCON512 / 3: -54,
-  / public key    / -1: h'7803c0f9...3f6e2c70',
+  / kty AKP         / 1: 7,
+  / alg FN-DSA-512  / 3: -54,
+  / public key      / -1: h'7803c0f9...3f6e2c70',
 }
 ~~~~
-{: #FALCON512-public-cose-key title="Example FALCON512 Public COSE Key"}
+{: #FN-DSA-512-public-cose-key title="Example FN-DSA-512 Public COSE Key"}
 
 ### COSE Sign1
 
 ~~~~ cbor-diag
 18([
   <<{
-    / alg FALCON512 / 1: -54,
+    / alg FN-DSA-512 / 1: -54,
   }>>,
   / unprotected / {},
   / payload / h'66616b65',
   / signature / h'53e855e8...0f263549'
 ])
 ~~~~
-{: #FALCON512-cose-sign-1-diagnostic title="Example FALCON512 COSE Sign1"}
+{: #FN-DSA-512-cose-sign-1-diagnostic title="Example FN-DSA-512 COSE Sign1"}
 
 
 
