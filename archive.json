@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-12T00:53:18.918364+00:00",
+  "timestamp": "2025-10-14T00:50:57.796273+00:00",
   "repo": "cose-wg/draft-ietf-cose-falcon",
   "labels": [
     {
@@ -50,5 +50,404 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOQAiVA86tTIzw",
+      "title": "Security Consideration Section Update",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/1",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T10:31:42Z",
+      "updatedAt": "2025-10-12T12:12:01Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "6a5aa15ffe6bc04dbae53ab3ab4f8d944f8bd8fe",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "f799f6703b885c422136f6c6a581afeb8827b366",
+      "closedAt": "2025-10-12T12:12:01Z",
+      "mergedAt": "2025-10-12T12:12:01Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "a4b44b3c15c51a03190dfe8224aa9fd3e27437eb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87GXqt7",
+          "commit": {
+            "abbreviatedOid": "3ef20b0"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:48:26Z",
+          "updatedAt": "2025-10-12T10:48:26Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\n- Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.\r\n```",
+              "createdAt": "2025-10-12T10:48:26Z",
+              "updatedAt": "2025-10-12T10:48:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GXq_p",
+          "commit": {
+            "abbreviatedOid": "28e55d0"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:48:40Z",
+          "updatedAt": "2025-10-12T10:48:40Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n- Implementations MUST ensure that `kty` and `crv` match the intended algorithm variant.\r\n```",
+              "createdAt": "2025-10-12T10:48:40Z",
+              "updatedAt": "2025-10-12T10:48:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GXrGc",
+          "commit": {
+            "abbreviatedOid": "1c3e4f3"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:48:51Z",
+          "updatedAt": "2025-10-12T10:48:51Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n- Public keys SHOULD be validated before use (e.g., against encoding constraints).\r\n```",
+              "createdAt": "2025-10-12T10:48:51Z",
+              "updatedAt": "2025-10-12T10:48:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GYlyN",
+          "commit": {
+            "abbreviatedOid": "f799f67"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-12T12:11:53Z",
+          "updatedAt": "2025-10-12T12:11:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOQAiVA86tTI4P",
+      "title": "Side-Channel Attacks",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/2",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T10:32:15Z",
+      "updatedAt": "2025-10-12T12:12:34Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "6a5aa15ffe6bc04dbae53ab3ab4f8d944f8bd8fe",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-2",
+      "headRefOid": "ec48f9ee79b60b2e81f142bb4e2760c890c6fb2c",
+      "closedAt": "2025-10-12T12:12:34Z",
+      "mergedAt": "2025-10-12T12:12:34Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "92052add59f34707666ae800d70ad08206acda58"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87GXqKu",
+          "commit": {
+            "abbreviatedOid": "5b880c0"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:47:44Z",
+          "updatedAt": "2025-10-12T10:47:44Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\n- Using constant-time arithmetic\r\n```",
+              "createdAt": "2025-10-12T10:47:44Z",
+              "updatedAt": "2025-10-12T10:47:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GXqTh",
+          "commit": {
+            "abbreviatedOid": "ed3a552"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:47:56Z",
+          "updatedAt": "2025-10-12T10:47:56Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n- Maintaining uniform memory access patterns\r\n```",
+              "createdAt": "2025-10-12T10:47:56Z",
+              "updatedAt": "2025-10-12T10:47:56Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOQAiVA86tTI8X",
+      "title": "Randomness Considerations",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/3",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T10:32:46Z",
+      "updatedAt": "2025-10-12T12:12:19Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "6a5aa15ffe6bc04dbae53ab3ab4f8d944f8bd8fe",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-3",
+      "headRefOid": "9e8c2674bc7b9ed7fcf150b927538b119abd4e81",
+      "closedAt": "2025-10-12T12:12:19Z",
+      "mergedAt": "2025-10-12T12:12:19Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "e91eb6abfa29271217e6f0205294826b239135f1"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOQAiVA86tTJPr",
+      "title": "Abstract Update",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/4",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T10:34:26Z",
+      "updatedAt": "2025-10-12T12:11:40Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "c497f10ba51efd60d793e78dba1fe8278f16c24c",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-4",
+      "headRefOid": "70fd3c64861d5e3cfb51240a3a0a4c9e6d9a0842",
+      "closedAt": "2025-10-12T12:11:40Z",
+      "mergedAt": "2025-10-12T12:11:40Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "1cde61e7f043fa7947759a2b1306d9cb856d8c2b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87GYfYn",
+          "commit": {
+            "abbreviatedOid": "6e421b3"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-12T12:01:51Z",
+          "updatedAt": "2025-10-12T12:01:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GYlmb",
+          "commit": {
+            "abbreviatedOid": "70fd3c6"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-12T12:11:36Z",
+          "updatedAt": "2025-10-12T12:11:36Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOQAiVA86tTM1B",
+      "title": "Update to Introduction",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/5",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T10:47:17Z",
+      "updatedAt": "2025-10-12T12:00:37Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "6a5aa15ffe6bc04dbae53ab3ab4f8d944f8bd8fe",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-5",
+      "headRefOid": "c6f0b56c2f8f01094370cd8c6e4723544c823993",
+      "closedAt": "2025-10-12T12:00:37Z",
+      "mergedAt": "2025-10-12T12:00:36Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "c497f10ba51efd60d793e78dba1fe8278f16c24c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87GXsHG",
+          "commit": {
+            "abbreviatedOid": "a854a77"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:50:01Z",
+          "updatedAt": "2025-10-12T10:50:01Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\n- Post-quantum security under the assumption that NTRU-SIS remains hard.\r\n```",
+              "createdAt": "2025-10-12T10:50:01Z",
+              "updatedAt": "2025-10-12T10:50:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GXsMM",
+          "commit": {
+            "abbreviatedOid": "a854a77"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:50:08Z",
+          "updatedAt": "2025-10-12T10:50:08Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "```suggestion\r\n- Compactness in key and signature size.\r\n```",
+              "createdAt": "2025-10-12T10:50:08Z",
+              "updatedAt": "2025-10-12T10:50:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GXsPQ",
+          "commit": {
+            "abbreviatedOid": "a854a77"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T10:50:14Z",
+          "updatedAt": "2025-10-12T10:50:14Z",
+          "comments": [
+            {
+              "originalPosition": 58,
+              "body": "```suggestion\r\n- Efficient operations (roughly O(n log n)).\r\n```",
+              "createdAt": "2025-10-12T10:50:14Z",
+              "updatedAt": "2025-10-12T10:50:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQAiVA87GYePW",
+          "commit": {
+            "abbreviatedOid": "c6f0b56"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-12T12:00:06Z",
+          "updatedAt": "2025-10-12T12:00:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOQAiVA86tT2dK",
+      "title": "Rename FALCON algorithms to FN-DSA",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/6",
+      "state": "MERGED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Per https://mailarchive.ietf.org/arch/msg/cose/tFta5-OtwGUGZx9alFVpq2s_CPw/",
+      "createdAt": "2025-10-12T12:56:58Z",
+      "updatedAt": "2025-10-12T17:20:02Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "92052add59f34707666ae800d70ad08206acda58",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "OR13-patch-1",
+      "headRefOid": "935d79c7d278fc29b00005376e068cf00dde3dd3",
+      "closedAt": "2025-10-12T17:19:58Z",
+      "mergedAt": "2025-10-12T17:19:58Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "55152cb638cd065b8435302efbc2716796c55f4b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87Gb5wM",
+          "commit": {
+            "abbreviatedOid": "935d79c"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for the changes, Ori. ",
+          "createdAt": "2025-10-12T17:19:52Z",
+          "updatedAt": "2025-10-12T17:19:52Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
 }
