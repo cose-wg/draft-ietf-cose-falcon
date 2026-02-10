@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-08T01:43:00.464670+00:00",
+  "timestamp": "2026-02-10T01:23:22.644940+00:00",
   "repo": "cose-wg/draft-ietf-cose-falcon",
   "labels": [
     {
@@ -448,6 +448,58 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOQAiVA87CU-vX",
+      "title": "\u0084New examples.",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/7",
+      "state": "OPEN",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-08T19:22:52Z",
+      "updatedAt": "2026-02-08T19:22:53Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "55152cb638cd065b8435302efbc2716796c55f4b",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "examples",
+      "headRefOid": "b587e6491e88f9ac6e728be0768c3d1b8ce30bda",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOQAiVA87CVJCe",
+      "title": "Text for the \"Validating Public Keys\" Section",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/8",
+      "state": "OPEN",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-08T19:54:37Z",
+      "updatedAt": "2026-02-08T19:54:43Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "55152cb638cd065b8435302efbc2716796c55f4b",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-6",
+      "headRefOid": "0fec2d554f926527a2387cd87ef730bb05953eb7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
