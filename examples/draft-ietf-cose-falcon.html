@@ -171,7 +171,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -179,7 +179,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -1050,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">FN-DSA for JOSE and COSE</td>
-<td class="right">February 2026</td>
+<td class="right">March 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Prorock, et al.</td>
-<td class="center">Expires 12 August 2026</td>
+<td class="center">Expires 12 September 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-cose-falcon-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-02-08" class="published">8 February 2026</time>
+<time datetime="2026-03-11" class="published">11 March 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-08-12">12 August 2026</time></dd>
+<dd class="expires"><time datetime="2026-09-12">12 September 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1131,7 +1132,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 12 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 12 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1795,7 +1796,8 @@ The following completed registration templates are provided as described in <spa
   / kty AKP        / 1: 7,
   / alg FN-DSA-512 / 3: -54,
   / kid            / 2: h'66616c636f6e2d6b6964',
-  / public key     / -1: h'09098e1e15e457c27018e854a4e4d53c9a4067ab03cb6a698d7667177a85905a
+  / public key     / -1:
+h'09098e1e15e457c27018e854a4e4d53c9a4067ab03cb6a698d7667177a85905a
   d33dcd443799bd8ab6e20770c17840aede1ebecdc125beadaa7f22e880fc9a58
   0b61086997199774bacac649ed342d75355a23e44c48512500688b21684edf76
   ef4c7d78d024737fe100290ce8530fcb46a6546d295152df960438f71a139917
@@ -1824,7 +1826,8 @@ The following completed registration templates are provided as described in <spa
   13b94b32a5c55e185b2eec1255671004b9825e7947de3756ad5515396cbc732d
   aa97a9e5bd525901fb3718d47a22060b80df8ca559a8368a92008269b69afc95
   e9',
-  / private key    / -2: h'59ebc07f0841ff04803c103078f061bdf0207cf7cec4ffbf80f4407e002f02f8
+  / private key    / -2:
+h'59ebc07f0841ff04803c103078f061bdf0207cf7cec4ffbf80f4407e002f02f8
   0ffafc408310507e040ec30fef7bf3a0bd0c3ebc0401c1fbdf7b083fc0083f87
   f8303c0fc084f84045ec2086d031c3ffa08808af4000418cf3f1fef00ffaf830
   43f7fe83f8213bfc2f84fbb0fc1430fe0c7f01fc2f03e0613b00407fefbeb82b
@@ -1880,7 +1883,8 @@ The following completed registration templates are provided as described in <spa
   / kty AKP        / 1: 7,
   / alg FN-DSA-1024 / 3: -55,
   / kid            / 2: h'66616c636f6e313032342d6b6964',
-  / public key     / -1: h'0a81ad206a1c49a981cafbb70f15c6bec2b033e468488518b388088172142cf1
+  / public key     / -1:
+h'0a81ad206a1c49a981cafbb70f15c6bec2b033e468488518b388088172142cf1
   5094e85dab1a8534d28c0e72fc7df5126b45536a9914729542837067586d408e
   56146ea99ceb5391421f6a3f198143dcbd18234f74bb0487c53e2a6530fce990
   a40fd42c7251c52f0ec34f5887e9799d0d76f0b978b109a6af287ff2ce20a7bf
@@ -1937,7 +1941,8 @@ The following completed registration templates are provided as described in <spa
   0ab593c899b1f14d862f7d95c1fc8bd91f60eef4c355fb070d45c77fe3051258
   572aab151f64be37ebf2605118b56a657281373b91faf14bd1a5ac7632e07a10
   74',
-  / private key    / -2: h'5a083c1ef43e374422e3fde78c3e0fe33005b088450781c07c1fefc05073c50f
+  / private key    / -2:
+h'5a083c1ef43e374422e3fde78c3e0fe33005b088450781c07c1fefc05073c50f
   3dfdf7c0f82fcf83e307c221ffbc0f81de87dcd0bbd013a1e8882113ffe889ef
   8c5f077a31a86238c3e183bfff7bbf8801fffdd08426dfc82f73c20043f0f3dc
   e701cff3ff2780410ba207fe30043ee8cc10fc1de787f203dc1106000401ffc4
@@ -2025,7 +2030,8 @@ The following completed registration templates are provided as described in <spa
   / kty AKP         / 1: 7,
   / alg FN-DSA-512  / 3: -54,
   / kid             / 2: h'66616c636f6e2d6b6964',
-  / public key      / -1: h'09098e1e15e457c27018e854a4e4d53c9a4067ab03cb6a698d7667177a85905a
+  / public key      / -1:
+h'09098e1e15e457c27018e854a4e4d53c9a4067ab03cb6a698d7667177a85905a
   d33dcd443799bd8ab6e20770c17840aede1ebecdc125beadaa7f22e880fc9a58
   0b61086997199774bacac649ed342d75355a23e44c48512500688b21684edf76
   ef4c7d78d024737fe100290ce8530fcb46a6546d295152df960438f71a139917
@@ -2069,7 +2075,8 @@ The following completed registration templates are provided as described in <spa
   / kty AKP         / 1: 7,
   / alg FN-DSA-1024 / 3: -55,
   / kid            / 2: h'66616c636f6e313032342d6b6964',
-  / public key     / -1: h'0a81ad206a1c49a981cafbb70f15c6bec2b033e468488518b388088172142cf1
+  / public key     / -1:
+h'0a81ad206a1c49a981cafbb70f15c6bec2b033e468488518b388088172142cf1
   5094e85dab1a8534d28c0e72fc7df5126b45536a9914729542837067586d408e
   56146ea99ceb5391421f6a3f198143dcbd18234f74bb0487c53e2a6530fce990
   a40fd42c7251c52f0ec34f5887e9799d0d76f0b978b109a6af287ff2ce20a7bf
@@ -2150,7 +2157,8 @@ The following completed registration templates are provided as described in <spa
   }&gt;&gt;,
   / unprotected / {},
   / payload / h'66616b65',
-  / signature / h'39d79a9d52f6abf0dbfcdd2ae28f612741d41637793a3d698542d69d277ba3cf
+  / signature /
+h'39d79a9d52f6abf0dbfcdd2ae28f612741d41637793a3d698542d69d277ba3cf
   15cb855a7000913b9badc27925ba438ec42d6ff6cd25193528d1c4647555c6be
   6ffd385768dc1b8f1c0ff3989da64c79903f4c6c1fb68922843a7eae3b4d2b16
   cfa8301b07c6556df42ecc5a7d32e6bbfad7f7c144630f377d86429867eeb1d7
@@ -2188,7 +2196,8 @@ The following completed registration templates are provided as described in <spa
   }&gt;&gt;,
   / unprotected / {},
   / payload / h'66616b65',
-  / signature / h'3a12ef94a269b3d76e22c8bb373e940fa78db86f3a5b79544a415eab87f6bea0
+  / signature /
+h'3a12ef94a269b3d76e22c8bb373e940fa78db86f3a5b79544a415eab87f6bea0
   7535d1a75c0c3f1913399592ee4495013006cf21eaf42858bde3dc87d4c9d0df
   3a684a37f876f42e1b5a8208f46da8cddddf737f7a6c5d50fad220da712d62d7
   f3a2671c850366c2756133054a9f54d7109533fba24edbed433cddca8d7226ef
