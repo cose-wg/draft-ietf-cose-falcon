@@ -33,8 +33,9 @@ author:
     fullname: "Orie Steele"
     organization: Tradeverifyd
     email: "orie@or13.io"
-  - name: Hannes Tschofenig
-    org: University of the Bundeswehr Munich
+ -
+    fullname: Hannes Tschofenig
+    organization: University of the Bundeswehr Munich
     abbrev: UniBw M.
     city: Neubiberg
     region: Bavaria
