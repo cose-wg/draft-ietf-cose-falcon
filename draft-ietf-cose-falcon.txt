@@ -5,10 +5,10 @@
 CBOR Object Signing and Encryption                            M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                               O. Steele
-Expires: 15 April 2026                                      Tradeverifyd
+Expires: 12 September 2026                                  Tradeverifyd
                                                            H. Tschofenig
                                                                    H-BRS
-                                                         12 October 2025
+                                                           11 March 2026
 
 
                         FN-DSA for JOSE and COSE
@@ -60,11 +60,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2026.
+   This Internet-Draft will expire on 12 September 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -147,16 +147,16 @@ Table of Contents
    The sizes of public key, private key, and signature for the parameter
    sets are the same as in the original Falcon specification:
 
-      +===============+==============+==============+==============+
-      | Parameter Set | Signature    | Public Key   | Private Key  |
-      |               | size (bytes) | size (bytes) | size (bytes) |
-      +===============+==============+==============+==============+
-      | FN-DSA-512    | 666          | 897          | 1281         |
-      +---------------+--------------+--------------+--------------+
-      | FN-DSA-1024   | 1280         | 1793         | 2305         |
-      +---------------+--------------+--------------+--------------+
+   +===============+==============+==============+==============+
+   | Parameter Set | Signature    | Public Key   | Private Key  |
+   |               | size (bytes) | size (bytes) | size (bytes) |
+   +===============+==============+==============+==============+
+   | FN-DSA-512    | 666          | 897          | 1281         |
+   +---------------+--------------+--------------+--------------+
+   | FN-DSA-1024   | 1280         | 1793         | 2305         |
+   +---------------+--------------+--------------+--------------+
 
-                                 Table 1
+                   Table 1: Key Sizes for FN-DSA
 
    For a detailed comparison of FN-DSA with ML-DSA [USNIST.FIPS.204] and
    SLH-DSA [USNIST.FIPS.205] see Section 11.3 of
@@ -210,14 +210,14 @@ Table of Contents
 4.  FN-DSA Keys
 
    The FN-DSA Algorithm Family uses the Algorithm Key Pair (AKP) key
-   type, as defined in [I-D.draft-ietf-cose-dilithium].
+   type, as defined in Section 3 of [I-D.draft-ietf-cose-dilithium].
 
    The specific algorithms for FN-DSA, such as FALCON512 and FALCON1024,
    are defined in this document and are used in the alg value of an AKP
    key representation to specify the corresponding algorithm.
 
    Thumbprints for FN-DSA keys are computed according to the process
-   described in [I-D.draft-ietf-cose-dilithium].
+   described in Section 6 of [I-D.draft-ietf-cose-dilithium].
 
 5.  Security Considerations
 
@@ -227,23 +227,25 @@ Table of Contents
    A detailed security analysis of FN-DSA is beyond the scope of this
    specification; see [USNIST.FIPS.206] for additional details.
 
-   All the usual caveats for PQC and side-channel resistance apply.
+5.1.  Validating Public Keys
+
+   Public keys SHOULD be validated before use (e.g., against encoding
+   constraints).
+
+   When an AKP algorithm requires or encourages that a key be validated
+   before being used, all algorithm-related key parameters MUST be
+   validated.  For FN-DSA public keys, this includes, at a minimum:
 
    *  Implementations MUST ensure that alg matches the intended
       algorithm variant.
 
-   *  Private implementations of sampling (Gaussian, etc.) must be
-      constant-time to prevent leakage.
+   *  The key representation MUST be of the AKP key type and MUST
+      contain the public key value (pub for JWK, label -1 for COSE_Key).
 
-   *  Public keys SHOULD be validated before use (e.g., against encoding
-      constraints).
+   *  The decoded public key value MUST have the expected length for the
+      selected algorithm variant (see Table 1).
 
-   *  Nonces, random values, blinding factors (if used) MUST originate
-      from a secure source of randomness.
-
-5.1.  Validating Public Keys
-
-   TODO
+   Public keys that fail these checks MUST be rejected.
 
 5.2.  Side-Channel Attacks
 
@@ -349,9 +351,9 @@ Table of Contents
    [I-D.draft-ietf-cose-dilithium]
               Prorock, M. and O. Steele, "ML-DSA for JOSE and COSE",
               Work in Progress, Internet-Draft, draft-ietf-cose-
-              dilithium-09, 12 September 2025,
+              dilithium-11, 15 November 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-cose-
-              dilithium-09>.
+              dilithium-11>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
