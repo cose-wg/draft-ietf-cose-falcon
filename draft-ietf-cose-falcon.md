@@ -137,6 +137,7 @@ The sizes of public key, private key, and signature for the parameter sets are t
 |---------------|-------------------------|---------------------------|----------------------------|
 | FN-DSA-512    | 666                     | 897                       | 1281                       |
 | FN-DSA-1024   | 1280                    | 1793                      | 2305                       |
+{: #key-sizes align="left" title="Key Sizes for FN-DSA"}
 
 For a detailed comparison of FN-DSA with ML-DSA {{USNIST.FIPS.204}} and SLH-DSA {{USNIST.FIPS.205}} see {{Section 11.3 of I-D.draft-ietf-pquip-pqc-engineers}}.
 
@@ -168,11 +169,11 @@ This document introduces the registration of the following algorithms in {{-IANA
 
 # FN-DSA Keys
 
-The FN-DSA Algorithm Family uses the Algorithm Key Pair (AKP) key type, as defined in {{-ML-DSA}}.
+The FN-DSA Algorithm Family uses the Algorithm Key Pair (AKP) key type, as defined in Section 3 of {{-ML-DSA}}.
 
 The specific algorithms for FN-DSA, such as FALCON512 and FALCON1024, are defined in this document and are used in the `alg` value of an AKP key representation to specify the corresponding algorithm.
 
-Thumbprints for FN-DSA keys are computed according to the process described in {{-ML-DSA}}.
+Thumbprints for FN-DSA keys are computed according to the process described in Section 6 of {{-ML-DSA}}.
 
 # Security Considerations
 
@@ -180,16 +181,19 @@ The security considerations of {{RFC7515}}, {{RFC7517}} and {{RFC9053}} apply to
 
 A detailed security analysis of FN-DSA is beyond the scope of this specification; see {{USNIST.FIPS.206}} for additional details.
 
-All the usual caveats for PQC and side-channel resistance apply.
-
-- Implementations MUST ensure that `alg` matches the intended algorithm variant.
-- Private implementations of sampling (Gaussian, etc.) must be constant-time to prevent leakage.
-- Public keys SHOULD be validated before use (e.g., against encoding constraints).
-- Nonces, random values, blinding factors (if used) MUST originate from a secure source of randomness.
-
 ## Validating Public Keys
 
-TODO
+Public keys SHOULD be validated before use (e.g., against encoding constraints).
+
+When an AKP algorithm requires or encourages that a key be validated before being used, all algorithm-related key parameters MUST be validated. For FN-DSA public keys, this includes, at a minimum:
+
+  *  Implementations MUST ensure that `alg` matches the intended algorithm variant.
+
+  *  The key representation MUST be of the AKP key type and MUST contain the public key value (`pub` for JWK, label -1 for COSE_Key).
+
+  *  The decoded public key value MUST have the expected length for the selected algorithm variant (see {{key-sizes}}).
+
+Public keys that fail these checks MUST be rejected.
 
 ## Side-Channel Attacks
 
@@ -199,11 +203,9 @@ Implementers should follow best practices to mitigate timing, cache, and power s
 - Maintaining uniform memory access patterns
 - Avoiding data-dependent branching or memory indexing
 
-
 ## Randomness Considerations
 
 All required randomness (e.g. for signature generation) MUST be derived from a cryptographically secure, high-entropy source.
-
 
 # IANA Considerations
 
