@@ -33,12 +33,14 @@ author:
     fullname: "Orie Steele"
     organization: Tradeverifyd
     email: "orie@or13.io"
- -
-    fullname: "Hannes Tschofenig"
-    organization: University of Applied Sciences Bonn-Rhein-Sieg
-    abbrev: "H-BRS"
+  - name: Hannes Tschofenig
+    org: University of the Bundeswehr Munich
+    abbrev: UniBw M.
+    city: Neubiberg
+    region: Bavaria
     country: Germany
-    email: "hannes.tschofenig@gmx.net"
+    code: 85577
+    email: hannes.tschofenig@gmx.net
 
 contributor:
  -
