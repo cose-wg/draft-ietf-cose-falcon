@@ -7,7 +7,7 @@ Internet-Draft                                                  mesur.io
 Intended status: Standards Track                               O. Steele
 Expires: 12 September 2026                                  Tradeverifyd
                                                            H. Tschofenig
-                                                                   H-BRS
+                                                                UniBw M.
                                                            11 March 2026
 
 
@@ -937,6 +937,7 @@ Authors' Addresses
 
 
    Hannes Tschofenig
-   University of Applied Sciences Bonn-Rhein-Sieg
+   University of the Bundeswehr Munich
+   85577 Neubiberg
    Germany
    Email: hannes.tschofenig@gmx.net
