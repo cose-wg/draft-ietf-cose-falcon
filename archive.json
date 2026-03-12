@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-10T01:06:51.286264+00:00",
+  "timestamp": "2026-03-12T01:04:41.081507+00:00",
   "repo": "cose-wg/draft-ietf-cose-falcon",
   "labels": [
     {
@@ -454,24 +454,26 @@
       "id": "PR_kwDOQAiVA87CU-vX",
       "title": "\u0084New examples.",
       "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/7",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "hannestschofenig",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-08T19:22:52Z",
-      "updatedAt": "2026-02-08T19:22:53Z",
+      "updatedAt": "2026-03-11T08:14:57Z",
       "baseRepository": "cose-wg/draft-ietf-cose-falcon",
       "baseRefName": "main",
       "baseRefOid": "55152cb638cd065b8435302efbc2716796c55f4b",
       "headRepository": "cose-wg/draft-ietf-cose-falcon",
       "headRefName": "examples",
-      "headRefOid": "b587e6491e88f9ac6e728be0768c3d1b8ce30bda",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c48d5fdae943a6003e57052373c8f7b87d7ceae1",
+      "closedAt": "2026-03-11T08:14:53Z",
+      "mergedAt": "2026-03-11T08:14:53Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "886fec8889ff4eb8614ef6ae36ba97771ab9e8be"
+      },
       "comments": [],
       "reviews": []
     },
@@ -480,26 +482,70 @@
       "id": "PR_kwDOQAiVA87CVJCe",
       "title": "Text for the \"Validating Public Keys\" Section",
       "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "hannestschofenig",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-08T19:54:37Z",
-      "updatedAt": "2026-02-08T19:54:43Z",
+      "updatedAt": "2026-03-11T08:14:40Z",
       "baseRepository": "cose-wg/draft-ietf-cose-falcon",
       "baseRefName": "main",
       "baseRefOid": "55152cb638cd065b8435302efbc2716796c55f4b",
       "headRepository": "cose-wg/draft-ietf-cose-falcon",
       "headRefName": "hannestschofenig-patch-6",
       "headRefOid": "0fec2d554f926527a2387cd87ef730bb05953eb7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-03-11T08:14:37Z",
+      "mergedAt": "2026-03-11T08:14:37Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "02d0280ad889ccf5bb5e307a5a38ce6179ae2534"
+      },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOQAiVA87JoNa-",
+      "title": "Change affiliation",
+      "url": "https://github.com/cose-wg/draft-ietf-cose-falcon/pull/9",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Updated contributor information for Hannes Tschofenig.",
+      "createdAt": "2026-03-11T08:16:46Z",
+      "updatedAt": "2026-03-11T12:30:01Z",
+      "baseRepository": "cose-wg/draft-ietf-cose-falcon",
+      "baseRefName": "main",
+      "baseRefOid": "886fec8889ff4eb8614ef6ae36ba97771ab9e8be",
+      "headRepository": "cose-wg/draft-ietf-cose-falcon",
+      "headRefName": "hannestschofenig-patch-6",
+      "headRefOid": "6054ff52a38b6536108667561e95f3c202b33f64",
+      "closedAt": "2026-03-11T08:19:17Z",
+      "mergedAt": "2026-03-11T08:19:17Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "0d8378c3a1dd853d02736bb190f00248a4a37a4d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQAiVA87qM-fD",
+          "commit": {
+            "abbreviatedOid": "6054ff5"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-11T12:30:01Z",
+          "updatedAt": "2026-03-11T12:30:01Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
