@@ -5,10 +5,10 @@
 CBOR Object Signing and Encryption                            M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                               O. Steele
-Expires: 12 September 2026                                  Tradeverifyd
+Expires: 15 September 2026                                  Tradeverifyd
                                                            H. Tschofenig
                                                                 UniBw M.
-                                                           11 March 2026
+                                                           14 March 2026
 
 
                         FN-DSA for JOSE and COSE
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 September 2026.
+   This Internet-Draft will expire on 15 September 2026.
 
 Copyright Notice
 
@@ -83,9 +83,10 @@ Table of Contents
    3.  The FN-DSA Algorithm Family
    4.  FN-DSA Keys
    5.  Security Considerations
-     5.1.  Validating Public Keys
-     5.2.  Side-Channel Attacks
-     5.3.  Randomness Considerations
+     5.1.  Pre-Hash and Hashing Considerations
+     5.2.  Validating Public Keys
+     5.3.  Side-Channel Attacks
+     5.4.  Randomness Considerations
    6.  IANA Considerations
      6.1.  New COSE Algorithms
        6.1.1.  FN-DSA-512
@@ -227,7 +228,47 @@ Table of Contents
    A detailed security analysis of FN-DSA is beyond the scope of this
    specification; see [USNIST.FIPS.206] for additional details.
 
-5.1.  Validating Public Keys
+5.1.  Pre-Hash and Hashing Considerations
+
+   FN-DSA, as specified in [USNIST.FIPS.206], supports both pure and
+   pre-hash modes.  This document specifies only the pure mode of FN-DSA
+   for use with JOSE and COSE.
+
+   This document does not define or register separate HashFN-DSA
+   algorithm identifiers for JOSE or COSE.  Doing so would require
+   distinct algorithm registrations and would introduce additional
+   implementation and interoperability complexity.  The algorithm
+   identifiers defined in this document therefore refer only to the pure
+   FN-DSA variants.
+
+   For many COSE use cases, this restriction is acceptable because the
+   application can already structure the signed content in a way that
+   limits the amount of data processed directly by the signature
+   algorithm.  In particular, applications that need to sign large
+   payloads, detached content, or remotely held content may use the COSE
+   Hash Envelope mechanism [I-D.ietf-cose-hash-envelope].
+
+   Hash Envelope can provide operational properties similar to those
+   sought from a pre-hash signature mode, such as reduced data transfer
+   to a signer, reduced buffering requirements, and simplified remote-
+   signing workflows.  However, Hash Envelope is not cryptographically
+   identical to a standardized pre-hash variant of FN-DSA.  In Hash
+   Envelope, a digest is carried and signed at the COSE layer, whereas
+   in a pre-hash signature algorithm the hashing step is part of the
+   algorithm definition itself.
+
+   Applications that use Hash Envelope together with FN-DSA need to
+   ensure that the digest is recomputed over the original content and
+   compared with the signed digest before treating the signature as
+   valid for that content.  Profiles that rely on this construction
+   SHOULD specify the permitted hash algorithms and the verification
+   procedure explicitly.
+
+   If future deployment experience shows clear demand for algorithm-
+   level pre-hash semantics in JOSE or COSE, separate registrations for
+   HashFN-DSA could be defined in a future specification.
+
+5.2.  Validating Public Keys
 
    Public keys SHOULD be validated before use (e.g., against encoding
    constraints).
@@ -247,7 +288,7 @@ Table of Contents
 
    Public keys that fail these checks MUST be rejected.
 
-5.2.  Side-Channel Attacks
+5.3.  Side-Channel Attacks
 
    Implementers should follow best practices to mitigate timing, cache,
    and power side channels, such as:
@@ -258,7 +299,7 @@ Table of Contents
 
    *  Avoiding data-dependent branching or memory indexing
 
-5.3.  Randomness Considerations
+5.4.  Randomness Considerations
 
    All required randomness (e.g. for signature generation) MUST be
    derived from a cryptographically secure, high-entropy source.
@@ -415,6 +456,13 @@ Table of Contents
               pquip-pqc-engineers-14, 25 August 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-pquip-
               pqc-engineers-14>.
+
+   [I-D.ietf-cose-hash-envelope]
+              Steele, O., Lasker, S., and H. Birkholz, "COSE Hash
+              Envelope", Work in Progress, Internet-Draft, draft-ietf-
+              cose-hash-envelope-10, 15 November 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-cose-
+              hash-envelope-10>.
 
    [IANA.cose]
               IANA, "CBOR Object Signing and Encryption (COSE)",
