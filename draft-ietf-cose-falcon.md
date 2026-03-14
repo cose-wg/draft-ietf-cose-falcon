@@ -72,6 +72,7 @@ normative:
 informative:
   IANA.jose: IANA.jose
   IANA.cose: IANA.cose
+  I-D.ietf-cose-hash-envelope:
   I-D.draft-ietf-pquip-pqc-engineers:
   USNIST.FIPS.204:
     title: "Module-Lattice-Based Digital Signature Standard"
@@ -183,6 +184,43 @@ Thumbprints for FN-DSA keys are computed according to the process described in S
 The security considerations of {{RFC7515}}, {{RFC7517}} and {{RFC9053}} apply to this specification as well.
 
 A detailed security analysis of FN-DSA is beyond the scope of this specification; see {{USNIST.FIPS.206}} for additional details.
+
+## Pre-Hash and Hashing Considerations
+
+FN-DSA, as specified in {{USNIST.FIPS.206}}, supports both pure and pre-hash
+modes. This document specifies only the pure mode of FN-DSA for use with JOSE
+and COSE.
+
+This document does not define or register separate `HashFN-DSA` algorithm
+identifiers for JOSE or COSE. Doing so would require distinct algorithm
+registrations and would introduce additional implementation and interoperability
+complexity. The algorithm identifiers defined in this document therefore refer
+only to the pure FN-DSA variants.
+
+For many COSE use cases, this restriction is acceptable because the
+application can already structure the signed content in a way that limits the
+amount of data processed directly by the signature algorithm. In particular,
+applications that need to sign large payloads, detached content, or remotely
+held content may use the COSE Hash Envelope mechanism
+{{I-D.ietf-cose-hash-envelope}}.
+
+Hash Envelope can provide operational properties similar to those sought from a
+pre-hash signature mode, such as reduced data transfer to a signer, reduced
+buffering requirements, and simplified remote-signing workflows. However, Hash
+Envelope is not cryptographically identical to a standardized pre-hash variant
+of FN-DSA. In Hash Envelope, a digest is carried and signed at the COSE layer,
+whereas in a pre-hash signature algorithm the hashing step is part of the
+algorithm definition itself.
+
+Applications that use Hash Envelope together with FN-DSA need to ensure that
+the digest is recomputed over the original content and compared with the signed
+digest before treating the signature as valid for that content. Profiles that
+rely on this construction SHOULD specify the permitted hash algorithms and the
+verification procedure explicitly.
+
+If future deployment experience shows clear demand for algorithm-level pre-hash
+semantics in JOSE or COSE, separate registrations for HashFN-DSA could be
+defined in a future specification.
 
 ## Validating Public Keys
 
