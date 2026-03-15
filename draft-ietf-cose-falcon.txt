@@ -5,10 +5,10 @@
 CBOR Object Signing and Encryption                            M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                               O. Steele
-Expires: 15 September 2026                                  Tradeverifyd
+Expires: 16 September 2026                                  Tradeverifyd
                                                            H. Tschofenig
                                                                 UniBw M.
-                                                           14 March 2026
+                                                           15 March 2026
 
 
                         FN-DSA for JOSE and COSE
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 September 2026.
+   This Internet-Draft will expire on 16 September 2026.
 
 Copyright Notice
 
@@ -104,7 +104,6 @@ Table of Contents
      A.2.  COSE
        A.2.1.  Key Pair
        A.2.2.  COSE Sign1
-   Appendix B.  Document History
    Acknowledgments
    Contributors
    Authors' Addresses
@@ -926,28 +925,6 @@ A.2.2.  COSE Sign1
    ])
 
                   Figure 9: Example FN-DSA-1024 COSE Sign1
-
-Appendix B.  Document History
-
-   -03 * Added examples for COSE FN-DSA-512 and FN-DSA-1024
-
-   -02
-
-   *  Converted to markdown
-
-   *  Applied feedback from IESG Evaluation on ML-DSA
-
-   *  Revised references
-
-   *  Revised abstract
-
-   -01
-
-   *  Added Acknowledgements
-
-   *  Added Document History
-
-   *  Updated test vectors
 
 Acknowledgments
 
