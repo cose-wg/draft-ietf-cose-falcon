@@ -761,6 +761,10 @@ h'3a12ef94a269b3d76e22c8bb373e940fa78db86f3a5b79544a415eab87f6bea0
 
 # Document History
 
+-04
+  * Added note about HashFN-DSA
+  * Improved COSE examples
+
 -03
   *  Added examples for COSE FN‑DSA‑512 and FN‑DSA‑1024
 
