@@ -759,29 +759,6 @@ h'3a12ef94a269b3d76e22c8bb373e940fa78db86f3a5b79544a415eab87f6bea0
 {: #FN-DSA-1024-cose-sign-1-diagnostic title="Example FN-DSA-1024 COSE Sign1"}
 
 
-# Document History
-
--04
-  * Added note about HashFN-DSA
-  * Improved COSE examples
-
--03
-  *  Added examples for COSE FN‑DSA‑512 and FN‑DSA‑1024
-
--02
-
-  *  Converted to markdown
-  *  Applied feedback from IESG Evaluation on ML-DSA
-  *  Revised references
-  *  Revised abstract
-
--01
-
-  *  Added Acknowledgements
-  *  Added Document History
-  *  Updated test vectors
-
-
 # Acknowledgments
 {:numbered="false"}
 
